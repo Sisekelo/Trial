@@ -5,9 +5,9 @@ include('../store/connect.php');
 
 
 
-	if (!isset($_FILES['image']['tmp_name'])) {
+	/*if (!isset($_FILES['image']['tmp_name'])) {
 	echo "";
-	}else{
+	}else{*/
 	$file=$_FILES['image']['tmp_name'];
 	$image= addslashes(file_get_contents($_FILES['image']['tmp_name']));
 	$image_name= addslashes($_FILES['image']['name']);
@@ -47,7 +47,7 @@ header("location: products.php");
 			exit();
 		
 			}
-	}
+	
 
 
 ?>
