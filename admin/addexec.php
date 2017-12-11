@@ -20,7 +20,7 @@ include('../store/connect.php');
 			
 		}else{*/
 			
-			move_uploaded_file($_FILES["image"]["tmp_name"],"../store/img/products/" . $_FILES["image"]["name"]);
+			/*move_uploaded_file($_FILES["image"]["tmp_name"],"../store/img/products/" . $_FILES["image"]["name"]);*/
 
 			$name = $_POST['Name'];
 			$Ingredient1 = $_POST['Ingredient1'];
