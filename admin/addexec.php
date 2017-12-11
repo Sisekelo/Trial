@@ -27,14 +27,14 @@ include('../store/connect.php');
 			$rate=$_POST['rate'];
 			$desc=$_POST['desc'];
 
-			$update = $mysqli ->query("INSERT INTO internet_shop (name, price, description, img) VALUES ('$type','$rate','$desc','$location')")
+			$update = $mysqli ->query("INSERT INTO internet_shop (name, price, description, img) VALUES ('$type','$rate','$desc','$location')");
 			
 
 			
 			/*$update=mysql_query("INSERT INTO internet_shop (name, price, description, img)
 VALUES
-('$type','$rate','$desc','$location')");
-header("location: products.php");*/
+('$type','$rate','$desc','$location')");*/
+header("location: products.php");
 			exit();
 		
 			}
