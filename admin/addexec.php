@@ -36,7 +36,7 @@ include('../store/connect.php');
 
 			$update = $mysqli ->query("INSERT INTO Oui_Deliver_Shop (Name, Ingredient_1, Ingredient_2,Ingredient_3,Ingredient_4,Price) 
 				VALUES 
-				('$name','$Ingredient1','$Ingredient2','$Ingredient3','$Ingredient4','$pr')");
+				('$name','$Ingredient1','$Ingredient2','$Ingredient3','$Ingredient4','$price')");
 			
 
 			
