@@ -146,7 +146,7 @@ return false;
 <body>
 <div id="wrapper">
 	<div id="note">
-		<h1 style="margin-top: 0px; margin-bottom: 5px;">Select Product</h1>
+		<h1 style="margin-top: 0px; margin-bottom: 5px;"><?=$transnum ?></h1>
 		For inquiries and order cancelation please contacts: (1800)777-111 or email us genesis_ps@yahoo.com.ph and call on (+6343)3005704.
 	</div>
 	<div id="content">
