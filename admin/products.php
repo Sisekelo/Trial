@@ -79,26 +79,36 @@
 					<table cellpadding="1" cellspacing="1" id="resultTable">
 						<thead>
 							<tr>
-								<th  style="border-left: 1px solid #C1DAD7"> Type </th>
-								<th> Rate </th>
-								<th> Desciption </th>
-								<th> Image </th>
-								<th> Action </th>
+								<!-- <th  style="border-left: 1px solid #C1DAD7"> Type </th> -->
+								<!-- <th>Id</th> -->
+								<th> Name </th>
+								<th> Price </th>
+								<th> Ingredient 1 </th>
+								<th> Ingredient 2 </th>
+								<th> Ingredient 3 </th>
+								<th> Ingredient 4 </th>
+								<th> Availability </th>
+								<th> Edit </th>
 							</tr>
 						</thead>
 						<tbody>
 						<?php
 							include('../store/connect.php');
-							$result = $mysqli -> query("SELECT * FROM internet_shop");
+							$result = $mysqli -> query("SELECT * FROM Oui_Deliver_Shop ORDER BY Available DESC");
 							/*$result = mysql_query("SELECT * FROM internet_shop");*/
 							while($row = mysqli_fetch_array($result))
 								{
-									echo '<tr class="record">';
-									echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['name'].'</td>';
-									echo '<td><div align="left">'.$row['price'].'</div></td>';
-									echo '<td><div align="left">'.$row['description'].'</div></td>';
-									echo '<td><a rel="facebox" href="editproductimage.php?id='.$row['id'].'"><img src="../store/img/products/'.$row['img'].'" width="80" height="50"></a></td>';
-									echo '<td><div align="center"><a rel="facebox" href="editproductetails.php?id='.$row['id'].'">edit</a> | <a href="#" id="'.$row['id'].'" class="delbutton" title="Click To Delete">delete</a></div></td>';
+									/*echo '<tr class="record">';*/
+									/*echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['Id'].'</td>';*/
+									echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['Name'].'</td>';
+									echo '<td><div align="left">'.$row['Price'].'</div></td>';
+									echo '<td><div align="left">'.$row['Ingredient_1'].'</div></td>';
+									echo '<td><div align="left">'.$row['Ingredient_2'].'</div></td>';
+									echo '<td><div align="left">'.$row['Ingredient_3'].'</div></td>';
+									echo '<td><div align="left">'.$row['Ingredient_4'].'</div></td>';
+									echo '<td><div align="left">'.$row['Available'].'</div></td>';
+									/*echo '<td><a rel="facebox" href="editproductimage.php?id='.$row['id'].'"><img src="../store/img/products/'.$row['img'].'" width="80" height="50"></a></td>';*/
+									echo '<td><div align="center"><a rel="facebox" href="editproductetails.php?id='.$row['Id'].'">edit</a> | <a href="deleteproduct.php?id='.$row['Id'].'" title="Click To Delete">delete</a></div></td>';
 									echo '</tr>';
 								}
 							?> 

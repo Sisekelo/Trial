@@ -22,18 +22,42 @@ height: 34px;
 <?php
 	include('../store/connect.php');
 	$id=$_GET['id'];
-	$result = mysql_query("SELECT * FROM internet_shop where id='$id'");
-		while($row = mysql_fetch_array($result))
+
+	$result = $mysqli->query("SELECT * FROM Oui_Deliver_Shop where Id='$id'");
+
+
+	/*$result = mysql_query("SELECT * FROM Oui_Deliver_Shop where id='$id'");*/
+		while($row = mysqli_fetch_array($result))
 			{
-				$type=$row['name'];
-				$rate=$row['price'];
-				$description=$row['description'];
+				$name=$row['Name'];
+				$price=$row['Price'];
+				$Ingredient1 = $row['Ingredient_1'];
+				$Ingredient2 = $row['Ingredient_2'];
+				$Ingredient3 = $row['Ingredient_3'];
+				$Ingredient4 = $row['Ingredient_4'];
+				$Availability = $row['Available'];
 			}
 ?>
 <form action="execeditproduct.php" method="post">
-	<input type="hidden" name="roomid" value="<?php echo $id=$_GET['id'] ?>">
-	Name:<br><input type="text" name="type" value="<?php echo $type ?>" class="ed"><br>
-	Rate:<br><input type="text" name="rate" value="<?php echo $rate ?>" class="ed"><br>
-	Description:<br><textarea name="description" class="ed"><?php echo $description ?></textarea><br>
+	<input type="hidden" name="roomid" value="<?php echo $id?>">
+	Name:<br><input type="text" name="name" value="<?php echo $name ?>" class="ed"><br>
+	Price:<br><input type="text" name="price" value="<?php echo $price ?>" class="ed"><br>
+	Ingredient 1<br/>
+	  <input name="Ingredient1" value="<?php echo $Ingredient1 ?>" type="text" class="ed" />
+	  <br/>
+	  Ingredient 2<br/>
+	  <input name="Ingredient2" value="<?php echo $Ingredient2 ?>" type="text" class="ed" />
+	  <br/>
+	  Ingredient 3<br/>
+	  <input name="Ingredient3" value="<?php echo $Ingredient3 ?>" type="text" class="ed" />
+	  <br/>
+	  Ingredient 4<br/>
+	  <input name="Ingredient4" value="<?php echo $Ingredient4 ?>" type="text" class="ed" />
+	  Available<br/>
+	  <input required name="Availability" type="radio" value="1" class="ed" />YES
+	  <br/>
+	  <input required name="Availability" type="radio" value="0"  class="ed" />No
+	  <br/>
+	
 	<input type="submit" value="Edit" id="button1">
 </form>
