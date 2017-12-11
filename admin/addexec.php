@@ -32,11 +32,11 @@ include('../store/connect.php');
 			$location=$_FILES["image"]["name"];
 			$type=$_POST['type'];
 			$rate=$_POST['rate'];
-			$desc=$_POST['desc']; Ingredient_1				
+			$desc=$_POST['desc'];				
 
 			$update = $mysqli ->query("INSERT INTO Oui_Deliver_Shop (Name, Ingredient_1, Ingredient_2,Ingredient_3,Ingredient_4,Price) 
 				VALUES 
-				('$name','$Ingredient1','$Ingredient2','$Ingredient3','$Ingredient4','$price')");
+				('$name','$Ingredient1','$Ingredient2','$Ingredient3','$Ingredient4','$pr')");
 			
 
 			
