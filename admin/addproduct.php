@@ -95,9 +95,9 @@ height: 34px;
   <input required name="price" type="text" id="rate" class="ed" onkeypress="return isNumberKey(event)" />
   <br/>
   
-  Description<br/>
+  <!-- Description<br/>
   <input name="desc" type="text" class="ed" /><br />
- <!--  Room Image: <br /><input type="file" name="image" class="ed"><br /> 
-  <input type="submit" name="Submit" value="save" id="button1" /> -->
+  Room Image: <br /><input type="file" name="image" class="ed"><br />  -->
+  <input type="submit" name="Submit" value="save" id="button1" />
  
 </form>
