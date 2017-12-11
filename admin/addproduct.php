@@ -75,16 +75,29 @@ height: 34px;
    </SCRIPT>
 
 <form action="addexec.php" method="post" enctype="multipart/form-data" name="addroom" onsubmit="return validateForm()">
- Name<br />
-  <input name="type" type="text" class="ed" /><br />
- Rate<br />
-    <input name="rate" type="text" id="rate" class="ed" onkeypress="return isNumberKey(event)" /><br />
- 
- Description<br />
-    <input name="desc" type="text" class="ed" /><br />
-    
- Room Image: <br /><input type="file" name="image" class="ed"><br />
- 
-    <input type="submit" name="Submit" value="save" id="button1" />
+
+  Name<br />
+  <input required name="Name" type="text" class="ed" />
+  <br/>
+  Ingredient 1<br/>
+  <input required name="Ingredient1" type="text" class="ed" />
+  <br/>
+  Ingredient 2<br/>
+  <input required name="Ingredient2" type="text" class="ed" />
+  <br/>
+  Ingredient 3<br/>
+  <input required name="Ingredient3" type="text" class="ed" />
+  <br/>
+  Ingredient 4<br/>
+  <input required name="Ingredient4" type="text" class="ed" />
+  <br/>
+  Price<br/>
+  <input required name="price" type="text" id="rate" class="ed" onkeypress="return isNumberKey(event)" />
+  <br/>
+  
+  Description<br/>
+  <input name="desc" type="text" class="ed" /><br />
+ <!--  Room Image: <br /><input type="file" name="image" class="ed"><br /> 
+  <input type="submit" name="Submit" value="save" id="button1" /> -->
  
 </form>

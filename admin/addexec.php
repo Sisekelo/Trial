@@ -21,13 +21,22 @@ include('../store/connect.php');
 		}else{
 			
 			move_uploaded_file($_FILES["image"]["tmp_name"],"../store/img/products/" . $_FILES["image"]["name"]);
+
+			$name = $_POST['Name'];
+			$Ingredient1 = $_POST['Ingredient1'];
+			$Ingredient2 = $_POST['Ingredient2'];
+			$Ingredient3 = $_POST['Ingredient3'];
+			$Ingredient4 = $_POST['Ingredient4'];
+			$price = $_POST['price'];
 			
 			$location=$_FILES["image"]["name"];
 			$type=$_POST['type'];
 			$rate=$_POST['rate'];
-			$desc=$_POST['desc'];
+			$desc=$_POST['desc']; Ingredient_1				
 
-			$update = $mysqli ->query("INSERT INTO internet_shop (name, price, description, img) VALUES ('$type','$rate','$desc','$location')");
+			$update = $mysqli ->query("INSERT INTO Oui_Deliver_Shop (Name, Ingredient_1, Ingredient_2,Ingredient_3,Ingredient_4,Price) 
+				VALUES 
+				('$name','$Ingredient1','$Ingredient2','$Ingredient3','$Ingredient4','$price')");
 			
 
 			
