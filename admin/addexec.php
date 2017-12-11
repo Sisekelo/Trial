@@ -28,15 +28,16 @@ include('../store/connect.php');
 			$Ingredient3 = $_POST['Ingredient3'];
 			$Ingredient4 = $_POST['Ingredient4'];
 			$price = $_POST['price'];
+			$Availability = $_POST['Availability'];
 			
 			/*$location=$_FILES["image"]["name"];*/
 			/*$type=$_POST['type'];
 			$rate=$_POST['rate'];
 			$desc=$_POST['desc'];	*/			
 
-			$update = $mysqli ->query("INSERT INTO Oui_Deliver_Shop (Name, Ingredient_1, Ingredient_2,Ingredient_3,Ingredient_4,Price) 
+			$update = $mysqli ->query("INSERT INTO Oui_Deliver_Shop (Name, Ingredient_1, Ingredient_2,Ingredient_3,Ingredient_4,Price,Available) 
 				VALUES 
-				('$name','$Ingredient1','$Ingredient2','$Ingredient3','$Ingredient4','$price')");
+				('$name','$Ingredient1','$Ingredient2','$Ingredient3','$Ingredient4','$price','$Availability')");
 			
 
 			
