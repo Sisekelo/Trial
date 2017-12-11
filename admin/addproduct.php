@@ -94,6 +94,12 @@ height: 34px;
   Price<br/>
   <input required name="price" type="text" id="rate" class="ed" onkeypress="return isNumberKey(event)" />
   <br/>
+  Available<br/>
+  <input required name="Availability" type="radio" class="ed" onkeypress="return isNumberKey(event)" />YES
+  <br/>
+  <input required name="Availability" type="radio"  class="ed" onkeypress="return isNumberKey(event)" />No
+  <br/>
+
 
   <!-- Description<br/>
   <input name="desc" type="text" class="ed" /><br />
