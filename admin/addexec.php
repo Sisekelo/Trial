@@ -29,10 +29,10 @@ include('../store/connect.php');
 			$Ingredient4 = $_POST['Ingredient4'];
 			$price = $_POST['price'];
 			
-			$location=$_FILES["image"]["name"];
-			$type=$_POST['type'];
+			/*$location=$_FILES["image"]["name"];*/
+			/*$type=$_POST['type'];
 			$rate=$_POST['rate'];
-			$desc=$_POST['desc'];				
+			$desc=$_POST['desc'];	*/			
 
 			$update = $mysqli ->query("INSERT INTO Oui_Deliver_Shop (Name, Ingredient_1, Ingredient_2,Ingredient_3,Ingredient_4,Price) 
 				VALUES 
