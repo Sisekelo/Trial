@@ -76,6 +76,8 @@ height: 34px;
 
 <form action="addexec.php" method="post" enctype="multipart/form-data" name="addroom" onsubmit="return validateForm()">
 
+  <button>Submit</button>
+
   Name<br />
   <input required name="Name" type="text" class="ed" />
   <br/>
