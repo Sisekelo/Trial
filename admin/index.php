@@ -94,8 +94,9 @@
 				<tbody>
 				<?php
 					include('../store/connect.php');
-					$result = mysql_query("SELECT * FROM reservation ORDER BY firstname ASC");
-					while($row = mysql_fetch_array($result))
+					/*$result = mysql_query("SELECT * FROM reservation ORDER BY firstname ASC");*/
+					$result = $mysqli ->query("SELECT * FROM reservation ORDER BY firstname ASC");
+					while($row = mysqli_fetch_array($result))
 						{
 							echo '<tr class="record" id="'.$row['status'].'">';
 							echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['confirmation'].'</td>';

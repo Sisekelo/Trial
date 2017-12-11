@@ -89,8 +89,9 @@
 						<tbody>
 						<?php
 							include('../store/connect.php');
-							$result = mysql_query("SELECT * FROM internet_shop");
-							while($row = mysql_fetch_array($result))
+							$result = $mysqli -> query("SELECT * FROM internet_shop");
+							/*$result = mysql_query("SELECT * FROM internet_shop");*/
+							while($row = mysqli_fetch_array($result))
 								{
 									echo '<tr class="record">';
 									echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['name'].'</td>';
