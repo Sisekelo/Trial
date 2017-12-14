@@ -1,5 +1,12 @@
 <?php
 	require_once('../auth.php');
+
+	if(!isset($_GET["vendor"])){
+      header("location: ../index.php");
+    };
+
+	$Vendor= $_GET["vendor"];
+	$_SESSION['Vendor'] = $Vendor
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,7 +41,7 @@
 <!-- HIDDEN COLOR CHANGER -->      
       <div style="position:relative;">
   	<!--LOGO-->
-	<div class="grid_8" id="logo">GPST Administration</div>
+	<div class="grid_8" id="logo">GPST Administration user = <?= $Vendor ?></div>
     <div class="grid_8">
 <!-- USER TOOLS START -->
       <div id="user_tools"><span><a href="../index.php">Logout</a></span></div>
@@ -71,7 +78,7 @@
 		<div class="portlet">
 			<div class="portlet-header fixed"><img src="images/icons/user.gif" width="16" height="16" alt="Latest Registered Users" /> 
 			<label for="filter">Search</label> <input type="text" name="filter" value="" id="filter" />
-			<a rel="facebox" href="addproduct.php">Add Product</a>
+			<a rel="facebox" href="addproduct.php?vendor=<?= $Vendor ?>">Add Product</a>
 			</div>
 			<div class="portlet-content nopadding">
 			<form action="" method="post">
@@ -82,11 +89,16 @@
 								<!-- <th  style="border-left: 1px solid #C1DAD7"> Type </th> -->
 								<!-- <th>Id</th> -->
 								<th> Name </th>
+								<th> Description </th>
 								<th> Price </th>
-								<th> Ingredient 1 </th>
-								<th> Ingredient 2 </th>
-								<th> Ingredient 3 </th>
-								<th> Ingredient 4 </th>
+								<th> Flavour 1</th>
+								<th> Flavour 2 </th>
+								<th> Flavour 3 </th>
+								<th> Flavour 4 </th>
+								<th> Topping 1 </th>
+								<th> Topping 2 </th>
+								<th> Topping 3 </th>
+								<th> Topping 4 </th>
 								<th> Availability </th>
 								<th> Edit </th>
 							</tr>
@@ -101,11 +113,16 @@
 									/*echo '<tr class="record">';*/
 									/*echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['Id'].'</td>';*/
 									echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['Name'].'</td>';
+									echo '<td><div align="left">'.$row['Description'].'</div></td>';
 									echo '<td><div align="left">'.$row['Price'].'</div></td>';
-									echo '<td><div align="left">'.$row['Ingredient_1'].'</div></td>';
-									echo '<td><div align="left">'.$row['Ingredient_2'].'</div></td>';
-									echo '<td><div align="left">'.$row['Ingredient_3'].'</div></td>';
-									echo '<td><div align="left">'.$row['Ingredient_4'].'</div></td>';
+									echo '<td><div align="left">'.$row['Flavour_1'].'</div></td>';
+									echo '<td><div align="left">'.$row['Flavour_2'].'</div></td>';
+									echo '<td><div align="left">'.$row['Flavour_3'].'</div></td>';
+									echo '<td><div align="left">'.$row['Flavour_4'].'</div></td>';
+									echo '<td><div align="left">'.$row['Topping_1'].'</div></td>';
+									echo '<td><div align="left">'.$row['Topping_2'].'</div></td>';
+									echo '<td><div align="left">'.$row['Topping_3'].'</div></td>';
+									echo '<td><div align="left">'.$row['Topping_4'].'</div></td>';
 									echo '<td><div align="left">'.$row['Available'].'</div></td>';
 									/*echo '<td><a rel="facebox" href="editproductimage.php?id='.$row['id'].'"><img src="../store/img/products/'.$row['img'].'" width="80" height="50"></a></td>';*/
 									echo '<td><div align="center"><a rel="facebox" href="editproductetails.php?id='.$row['Id'].'">edit</a> | <a href="deleteproduct.php?id='.$row['Id'].'" title="Click To Delete">delete</a></div></td>';

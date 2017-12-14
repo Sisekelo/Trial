@@ -401,6 +401,8 @@ GPST is now engaged in printing of personalized items with the following product
             </div>
         </div>
         </form>
+        <br>
+        <a href="Register.php">Register</a>
     </div> 
 </li>
 <!--adminlogin End-->

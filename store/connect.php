@@ -1,10 +1,9 @@
 <?php
 
-$host = 'mysql.hostinger.com';
-$user = 'u627368589_trial';
-$pass = '12345678';
-$db = 'u627368589_trial';
-
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$db = 'shoopingcart';
 $mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
 
 

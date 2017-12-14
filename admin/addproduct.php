@@ -1,3 +1,9 @@
+<?
+$Vendor= $_GET["vendor"];
+  $_SESSION['Vendor'] = $Vendor
+?>
+
+
 
 <script type="text/javascript">
 function validateForm()
@@ -76,29 +82,27 @@ height: 34px;
 
 <form action="addexec.php" method="post" enctype="multipart/form-data" name="addroom" onsubmit="return validateForm()">
 
-  Name<br />
-  <input required name="Name" type="text" class="ed" />
+
+  Name<input required name="Name" type="text" class="ed" /><br/>
+  Description<input required name="Desc" type="text" class="ed" /><br/>
+  Flavour 1<input required name="Flavour_1" type="text" class="ed" />
+  Flavour 2<input required name="Flavour_2" type="text" class="ed" />
+  Flavour 3<input required name="Flavour_3" type="text" class="ed" />
+  Flavour 4<input required name="Flavour_4" type="text" class="ed" />
   <br/>
-  Ingredient 1<br/>
-  <input required name="Ingredient1" type="text" class="ed" />
-  <br/>
-  Ingredient 2<br/>
-  <input required name="Ingredient2" type="text" class="ed" />
-  <br/>
-  Ingredient 3<br/>
-  <input required name="Ingredient3" type="text" class="ed" />
-  <br/>
-  Ingredient 4<br/>
-  <input required name="Ingredient4" type="text" class="ed" />
-  <br/>
+  Topping 1<input required name="Topping_1" type="text" class="ed" />
+  Topping 2<input required name="Topping_2" type="text" class="ed" />
+  Topping 3<input required name="Topping_3" type="text" class="ed" />
+  Topping 4<input required name="Topping_4" type="text" class="ed" />
   Price<br/>
   <input required name="price" type="text" id="rate" class="ed" onkeypress="return isNumberKey(event)" />
   <br/>
   Available<br/>
-  <input required name="Availability" type="radio" value="1" class="ed" onkeypress="return isNumberKey(event)" />YES
+    <input required name="Availability" type="radio" value="1" class="ed" onkeypress="return isNumberKey(event)" />YES
+    <br/>
+    <input required name="Availability" type="radio" value="0"  class="ed" onkeypress="return isNumberKey(event)" />No
   <br/>
-  <input required name="Availability" type="radio" value="0"  class="ed" onkeypress="return isNumberKey(event)" />No
-  <br/>
+  <input  disabled required name="Vendor" type="text" class="ed" value="<?= $_GET["vendor"]?>"/>
 
 
   <!-- Description<br/>

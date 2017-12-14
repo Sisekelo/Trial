@@ -1,5 +1,12 @@
 <?php
 	require_once('../auth.php');
+
+	if(!isset($_GET["vendor"])){
+      header("location: ../index.php");
+    };
+
+	$Vendor= $_GET["vendor"];
+	$_SESSION['Vendor'] = $Vendor
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -46,7 +53,7 @@
 	<ul class="group" id="menu_group_main">
 		<li class="item first" id="one"><a href="index.php" class="main current"><span class="outer"><span class="inner dashboard">Dashboard</span></span></a></li>
 		<li class="item middle" id="four"><a href="message.php" class="main"><span class="outer"><span class="inner media_library">Messages</span></span></a></li>  
-		<li class="item last" id="eight"><a href="products.php" class="main"><span class="outer"><span class="inner settings">Products</span></span></a></li>        
+		<li class="item last" id="eight"><a href="products.php?vendor=<?=$Vendor?>" class="main"><span class="outer"><span class="inner settings">Products</span></span></a></li>        
     </ul>
 </div>
 <!-- MENU END -->
@@ -57,7 +64,7 @@
     <div class="grid_16" id="content">
     <!--  TITLE START  --> 
     <div class="grid_9">
-    <h1 class="dashboard">Dashboard</h1>
+    <h1 class="dashboard">Dashboard User = <?= $Vendor ?></h1>
     </div>
     <div class="clear">
     </div>
@@ -79,29 +86,28 @@
 			<table cellpadding="1" cellspacing="1" id="resultTable">
 				<thead>
 					<tr>
-						<th  style="border-left: 1px solid #C1DAD7"> Confirmation Number </th>
-						<th> Name </th>
-						<th> Address </th>
-						<th> Contact </th>
-						<th> Email </th>
-						<th> Delivery Address </th>
-						<th> Status </th>
-						<th> Delivery Type</th>
-						<th> Payment Method</th>
-						<th> Action </th>
+						<th  style="border-left: 1px solid #C1DAD7"> Id </th>
+						<th> Meal </th>
+						<th> Flavour </th>
+						<th> Filling </th>
+						<th> Quantity </th>
+						<th> Drink Choice </th>
+						<th> Transaction Number </th>
+						<th> Confirm</th>
+						<th> Deny</th>
 					</tr>
 				</thead>
 				<tbody>
 				<?php
-					include('../store/connect.php');
+					include('db.php');
 					/*$result = mysql_query("SELECT * FROM reservation ORDER BY firstname ASC");*/
-					$result = $mysqli ->query("SELECT * FROM reservation ORDER BY firstname ASC");
+					$result = $mysqli ->query("SELECT * FROM Order2 ORDER BY Date ASC");
 					while($row = mysqli_fetch_array($result))
 						{
-							echo '<tr class="record" id="'.$row['status'].'">';
-							echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['confirmation'].'</td>';
-							echo '<td>'.$row['firstname'].' '.$row['lastname'].'</td>';
-							echo '<td><div align="left">'.$row['address'].'</div></td>';
+							/*echo '<tr class="record" id="'.$row['status'].'">';*/
+							echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['Id'].'</td>';
+							echo '<td>'.$row['Meal'].'</td>';
+							/*echo '<td><div align="left">'.$row['address'].'</div></td>';
 							echo '<td><div align="left">'.$row['contact'].'</div></td>';
 							echo '<td><div align="left">'.$row['email'].'</div></td>';
 							echo '<td><div align="left">'.$row['delivery'].'</div></td>';
@@ -109,7 +115,7 @@
 							echo '<td><div align="left">'.$row['delivery_type'].'</div></td>';
 							echo '<td><div align="left">'.$row['payment'].'</div></td>';
 							echo '<td><div align="center"><a rel="facebox" href="vieworders.php?id='.$row['confirmation'].'" title="Click To View Orders">View Orders</a> | <a rel="facebox" href="viewreport.php?id='.$row['confirmation'].'" title="Click To View Orders">Print</a> | <a rel="facebox" href="editstatus.php?id='.$row['reservation_id'].'">edit</a> | <a href="#" id="'.$row['reservation_id'].'" class="delbutton" title="Click To Delete">delete</a></div></td>';
-							echo '</tr>';
+							echo '</tr>';*/
 						}
 					?> 
 				</tbody>

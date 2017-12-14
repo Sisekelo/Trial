@@ -33,10 +33,11 @@
 			session_regenerate_id();
 			$member = mysqli_fetch_assoc($result);
 			$_SESSION['SESS_MEMBER_ID'] = $member['user_id'];
-			$_SESSION['SESS_FIRST_NAME'] = $member['position'];
+			/*$_SESSION['SESS_FIRST_NAME'] = $member['position'];*/
+			/*$_SESSION['Vendor'] = $member['username'];*/
 			session_write_close();
 			//if ($level="admin"){
-			header("location: admin/index.php");
+			header("location: admin/index.php?vendor=".$_SESSION['SESS_MEMBER_ID']."");
 			exit();
 		}else {
 			//Login failed

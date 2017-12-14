@@ -1,14 +1,14 @@
 <?php
 include('connect.php');
 $id=$_GET['id'];
-$result2 = $mysqli->query("SELECT * FROM internet_shop WHERE id='$id'");
+$result2 = $mysqli->query("SELECT * FROM oui_deliver_shop WHERE Id='$id'");
 //$result2 = mysql_query("SELECT * FROM internet_shop WHERE id='$id'");
 while($row2 = mysqlI_fetch_array($result2))
 	{
-	$price=$row2['price'];
-	$name=$row2['name'];
-	echo '<img src="img/products/'.$row2['img'].'" alt="Wall-E" title="Wall-E" /><br>';
-	echo '<span style="color:#B80000; font-size:16px; font-weight:bold; font-family:Arial, Helvetica, sans-serif;">'.$row2['name'].'</span><br>';
+	$price=$row2['Price'];
+	$name=$row2['Name'];
+	echo '<img src="img/products/'.$row2['Pic'].'" width="109" height="109" class="pngfix" /><br>';
+	echo '<span style="color:#B80000; font-size:16px; font-weight:bold; font-family:Arial, Helvetica, sans-serif;">'.$row2['Name'].'</span><br>';
 	//echo '<span style="font-size:11px; font-family:Arial, Helvetica, sans-serif; text-align:left; line-height:17px;color:#000000;">'.$row2['description'].'</span>';
 	}
 ?>
@@ -38,6 +38,10 @@ while($row2 = mysqlI_fetch_array($result2))
 			  //-->
 		</SCRIPT>
 <form NAME = "frmOne" action="initiateorder.php" method="post" enctype="multipart/form-data">
+
+  <input type="" name="Ingredient">
+
+
 	<input type="hidden" name="transnum" value="<?php echo $_GET['trnasnum'] ?>" />
 	<INPUT TYPE = "Text" name = "select1" size = "35" value ="<?php echo $price ?>" style="display:none;">
 	<INPUT TYPE = "Text" name = "pname" size = "35" value ="<?php echo $name ?>" style="display:none;">
@@ -48,7 +52,7 @@ while($row2 = mysqlI_fetch_array($result2))
 	 <span style="color:#B80000; font-size:16px; font-weight:bold; font-family:Arial, Helvetica, sans-serif;">=</span> 
     <INPUT TYPE = "Text" name = "txtDisplay" size = "35" value ="" style="border:#999999 solid 1px; background-color:#FFF; width:100px; height:20px;" readonly><br>
     <span style="font-size:10px; font-family:Arial, Helvetica, sans-serif; text-align:left; line-height:17px;color:#000000;">
-    In the note area you can specify what you want(example format)
+    In the note area you can specify what you want(<?=$row2['Pic']?>)
     <br />
     <?php
     if($name=='T-shirt')

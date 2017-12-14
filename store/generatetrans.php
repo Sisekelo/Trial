@@ -32,5 +32,5 @@ $confirmation = $letter.'-'.$ccnumbers;
 session_regenerate_id();
 $_SESSION['SESS_MEMBER_ID'] = $confirmation;
 session_write_close();
-header("location: index.php");
+header("location: index2.php");
 ?>

@@ -22,29 +22,37 @@ include('../store/connect.php');
 			
 			/*move_uploaded_file($_FILES["image"]["tmp_name"],"../store/img/products/" . $_FILES["image"]["name"]);*/
 
-			$name = $_POST['Name'];
-			$Ingredient1 = $_POST['Ingredient1'];
-			$Ingredient2 = $_POST['Ingredient2'];
-			$Ingredient3 = $_POST['Ingredient3'];
-			$Ingredient4 = $_POST['Ingredient4'];
+			$Name = $_POST['Name'];
+			$Description = $_POST['Desc'];
+			$Flavour_1 = $_POST['Flavour_1'];
+			$Flavour_2 = $_POST['Flavour_2'];
+			$Flavour_3 = $_POST['Flavour_3'];
+			$Flavour_4 = $_POST['Flavour_4'];
+
+			$Topping_1 = $_POST['Topping_1'];
+			$Topping_2 = $_POST['Topping_2'];
+			$Topping_3 = $_POST['Topping_3'];
+			$Topping_4 = $_POST['Topping_4'];
+
 			$price = $_POST['price'];
 			$Availability = $_POST['Availability'];
+			$Vendor = $_POST['Vendor'];
 			
 			/*$location=$_FILES["image"]["name"];*/
 			/*$type=$_POST['type'];
 			$rate=$_POST['rate'];
 			$desc=$_POST['desc'];	*/			
 
-			$update = $mysqli ->query("INSERT INTO Oui_Deliver_Shop (Name, Ingredient_1, Ingredient_2,Ingredient_3,Ingredient_4,Price,Available) 
+			$update = $mysqli ->query("INSERT INTO Oui_Deliver_Shop (Name, Flavour_1,Flavour_2,Flavour_3,Flavour_4,Vendor,Topping_1,Topping_2,Topping_3,Topping_4,Price,Description,Available) 
 				VALUES 
-				('$name','$Ingredient1','$Ingredient2','$Ingredient3','$Ingredient4','$price','$Availability')");
+				('$Name','$Flavour_1','$Flavour_2','$Flavour_3','$Flavour_4','$Vendor','$Topping_1','$Topping_2','$Topping_3','$Topping_4','$price','$Description','$Availability')");
 			
 
 			
 			/*$update=mysql_query("INSERT INTO internet_shop (name, price, description, img)
 VALUES
 ('$type','$rate','$desc','$location')");*/
-header("location: products.php");
+header("location: products.php?vendor=".$Vendor."");*/
 			exit();
 		
 			
