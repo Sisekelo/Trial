@@ -69,8 +69,8 @@ else{
 
 	$mysqli->query($received) or die($mysqli->error());
 
-	echo $numberPlus <br>;
-	echo $number <br>;
+	echo $numberPlus+"<br>";
+	echo $number;
 
 
 
