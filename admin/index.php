@@ -106,7 +106,7 @@
 						{
 							/*echo '<tr class="record" id="'.$row['status'].'">';*/
 							echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['Id'].'</td>';
-							echo '<td>'.$row['Meal'].'</td>';
+							echo '<td>'.$row['Drink_Choice'].'</td>';
 							/*echo '<td><div align="left">'.$row['address'].'</div></td>';
 							echo '<td><div align="left">'.$row['contact'].'</div></td>';
 							echo '<td><div align="left">'.$row['email'].'</div></td>';
