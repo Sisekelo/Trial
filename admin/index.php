@@ -113,7 +113,7 @@
 							echo '<td><div align="left">'.$row['Drink_Choice'].'</div></td>';
 							echo '<td><div align="left">'.$row['Transaction_Number'].'</div></td>';
 
-							echo '<td><div align="center"><a href="confirmOrder.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'" title="Click To View Orders">Confirm Order</a></div></td>';
+							echo '<td><div align="center"><a rel="facebox" href="confirmOrder.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'" title="Click To View Orders">Confirm Order</a></div></td>';
 
 
 						

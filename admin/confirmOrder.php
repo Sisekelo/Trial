@@ -4,9 +4,14 @@ ob_start();
 require 'db.php';
 
 $number= $_GET["number"];
-$numberPlus = '+'.$_GET["number"];
+$numberPlus = '+'.$number;
+$numberPlus = str_replace(' ', '', $numberPlus);
 $id = $_GET["id"];
-$SMSmessage;
+$SMSmessage = "Your order has been received";
+
+
+echo $numberPlus."<br>";
+echo $number;
 
 //check Id
 
@@ -61,27 +66,30 @@ else{
 	}	
 	else {//just give them an extra point
 		$mysqli->query("UPDATE details SET Points=Points+1 WHERE number='$numberPlus'") or die($mysqli->error);
+		echo "We added some points";
 	 }
 
 	//update order
 
-	/*$received = "UPDATE Orders2 SET Confirm='1' WHERE Id='$id'";*/
+	$received = "UPDATE Orders2 SET Confirm='1' WHERE Id='$id'";
 
 	$mysqli->query($received) or die($mysqli->error());
 
-	echo $numberPlus+"<br>";
-	echo $number;
 
 
 
 
 
-	/*include ( "Nexmo-PHP-lib-master/NexmoMessage.php" ); */
+	include ( "Nexmo-PHP-lib-master/NexmoMessage.php" ); 
 	/*$conmessage = 'Your order has just been confirmed. It is coming soon ;) Home: http://ouideliver.xyz/index.php';*/
 	// Step 1: Declare new NexmoMessage.
-/*	$nexmo_sms = new NexmoMessage('d6726b9a', '005e2f3453ccb56c');*/
+	$nexmo_sms = new NexmoMessage('d6726b9a', '005e2f3453ccb56c');
 	// Step 2: Use sendText( $to, $from, $message ) method to send a message. 
-/*	$info = $nexmo_sms->sendText( $numberPlus, 'MyApp', $SMSmessage);*/
+	$info = $nexmo_sms->sendText( $numberPlus, 'MyApp', $SMSmessage);
+
+	echo $nexmo_sms->displayOverview($info);
+
+	header("location: https://ouideliver.xyz/Trial/admin/index.php?vendor=1.php");
 
 	/*echo "<script type='text/javascript'>alert('Orderconfirmed');</script>";*/
 
