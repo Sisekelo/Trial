@@ -101,7 +101,7 @@
 				<?php
 					include('db.php');
 					/*$result = mysql_query("SELECT * FROM reservation ORDER BY firstname ASC");*/
-					$result = $mysqli ->query("SELECT * FROM Orders2 ORDER BY Date ASC");
+					$result = $mysqli ->query("SELECT * FROM  Orders2 WHERE Confirm = '0' ORDER BY Date ASC");
 					while($row = mysqli_fetch_array($result))
 						{
 							echo '<tr>';
@@ -112,9 +112,12 @@
 							echo '<td><div align="left">'.$row['Quantity'].'</div></td>';
 							echo '<td><div align="left">'.$row['Drink_Choice'].'</div></td>';
 							echo '<td><div align="left">'.$row['Transaction_Number'].'</div></td>';
-							/*echo '<td><div align="left">'.$row['delivery_type'].'</div></td>';
-							echo '<td><div align="left">'.$row['payment'].'</div></td>';
-							echo '<td><div align="center"><a rel="facebox" href="vieworders.php?id='.$row['confirmation'].'" title="Click To View Orders">View Orders</a> | <a rel="facebox" href="viewreport.php?id='.$row['confirmation'].'" title="Click To View Orders">Print</a> | <a rel="facebox" href="editstatus.php?id='.$row['reservation_id'].'">edit</a> | <a href="#" id="'.$row['reservation_id'].'" class="delbutton" title="Click To Delete">delete</a></div></td>';*/
+
+							echo '<td><div align="center"><a href="confirmOrder.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'" title="Click To View Orders">Confirm Order</a></div></td>';
+
+
+						
+							echo '<td><div align="center"><a rel="facebox" href="vieworders.php?id='.$row['confirmation'].'" title="Click To View Orders">View Orders</a> | <a rel="facebox" href="viewreport.php?id='.$row['confirmation'].'" title="Click To View Orders">Print</a> | <a rel="facebox" href="editstatus.php?id='.$row['reservation_id'].'">edit</a> | <a href="#" id="'.$row['reservation_id'].'" class="delbutton" title="Click To Delete">delete</a></div></td>';
 							echo '</tr>';
 						}
 					?> 
