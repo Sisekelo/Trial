@@ -58,8 +58,8 @@ else{
 	}	
 	else{//just give them an extra point
 		$mysqli->query("UPDATE details SET Points=Points+1 WHERE number='$number'") or die($mysqli->error);
-		add 1
-		message is:
+		/*add 1
+		message is:*/
 	}
 
 	//update order
