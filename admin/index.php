@@ -101,7 +101,7 @@
 				<?php
 					include('db.php');
 					/*$result = mysql_query("SELECT * FROM reservation ORDER BY firstname ASC");*/
-					$result = $mysqli ->query("SELECT * FROM Order2 ORDER BY Date ASC");
+					$result = $mysqli ->query("SELECT * FROM Orders2 ORDER BY Date ASC");
 					while($row = mysqli_fetch_array($result))
 						{
 							/*echo '<tr class="record" id="'.$row['status'].'">';*/
