@@ -3,7 +3,8 @@ session_start();
 ob_start();
 require 'db.php';
 
-$number= '+'.$_GET["number"];
+$number= $_GET["number"];
+$numberPlus = '+'.$_GET["number"];
 $id = $_GET["id"];
 
 //check Id
@@ -21,6 +22,7 @@ if($checkFinal == 1){
    
       $message = "This order has already been confirmed";
       echo "<script type='text/javascript'>alert('$message');</script>";
+
     
 }
 else{
@@ -28,7 +30,7 @@ else{
 	//check if this person has ordered before
     $first = $mysqli->query("SELECT * FROM Orders2 WHERE Buyer_Number='$number'") or die($mysqli->error());
     if($first->num_rows == 0){
-        $referal = $mysqli->query("SELECT Referer FROM details WHERE number='$number'") or die($mysqli->error());
+        $referal = $mysqli->query("SELECT Referer FROM details WHERE number='$numberPlus'") or die($mysqli->error());
         
          $user = $referal->fetch_assoc();
         
@@ -41,7 +43,7 @@ else{
 
     //Check if person has enough points for discount
 
-	$PointsCheck = "SELECT * from details where number='$number'";
+	$PointsCheck = "SELECT * from details where number='$numberPlus'";
 	$CheckQuery = $mysqli->query($PointsCheck) or die($mysqli->error());
 	$checkFetch = $CheckQuery->fetch_assoc();
 	$checkPoints = $checkFetch['Points'];
@@ -49,7 +51,7 @@ else{
 	if($checkPoints > 10){ // if that person has more than 10 points
 
 		$points = $checkPoints - 10;
-		$mysqli->query("UPDATE details SET Points='$points' WHERE number='$number'") or die($mysqli->error);
+		$mysqli->query("UPDATE details SET Points='$points' WHERE number='$numberPlus'") or die($mysqli->error);
 
 		$SMSmessage = "Your order has just been confirmed.\n You just got a 100 Rps discount on your meal.\n Keep ordering to earn more points";
 
@@ -57,7 +59,7 @@ else{
 
 	}	
 	else{//just give them an extra point
-		$mysqli->query("UPDATE details SET Points=Points+1 WHERE number='$number'") or die($mysqli->error);
+		$mysqli->query("UPDATE details SET Points=Points+1 WHERE number='$numberPlus'") or die($mysqli->error);
 		
 	}
 
@@ -73,7 +75,7 @@ else{
 	// Step 1: Declare new NexmoMessage.
 	$nexmo_sms = new NexmoMessage('d6726b9a', '005e2f3453ccb56c');
 	// Step 2: Use sendText( $to, $from, $message ) method to send a message. 
-	$info = $nexmo_sms->sendText( $number, 'MyApp',$SMSmessage);
+	$info = $nexmo_sms->sendText( $numberPlus, 'MyApp',$SMSmessage);
 
 	echo "<script type='text/javascript'>alert('Orderconfirmed');</script>";
 
