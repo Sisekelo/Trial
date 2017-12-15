@@ -5,50 +5,80 @@ require 'db.php';
 
 $number= $_GET["number"];
 $id = $_GET["id"];
-/*$free = $_GET["free"];*/
-
-echo $number;
-echo $id;
 
 //check Id
 
-/*$queryCheck = "SELECT Confirm from sales where id='$id'";
+$queryCheck = "SELECT Confirm from Orders2 where Id='$id'";
 
 $check = $mysqli->query($queryCheck) or die($mysqli->error());
-
-
-$checkFetch = $check->fetch_assoc();
-
-        
+$checkFetch = $check->fetch_assoc();     
 $checkFinal = $checkFetch['Confirm'];
 
 
 
+
 if($checkFinal == 1){
-    $_SESSION['emoji'] = "&#x1F625;";
-        $_SESSION['message'] = "This order has already been confirmed";
-        header("location: notification.php");
+   
+      $message = "This order has already been confirmed";
+      echo "<script type='text/javascript'>alert('$message');</script>";
     
 }
 else{
 
-$received = "UPDATE sales SET Confirm='1' WHERE id='$id'";
-$payer = "UPDATE sales SET Free='$free' WHERE id='$id'";
+	//check if this person has ordered before
+    $first = $mysqli->query("SELECT * FROM Orders2 WHERE number='$number'") or die($mysqli->error());
+    if($first->num_rows == 0){
+        $referal = $mysqli->query("SELECT Referer FROM details WHERE number='$number'") or die($mysqli->error());
+        
+         $user = $referal->fetch_assoc();
+        
+        $emailReferer = $user['Referer'];
+        
+        if($emailReferer != ""){
+             $givepoints =$mysqli->query("UPDATE details SET Points=Points+1 WHERE email='$emailReferer'") or die($mysqli->error());
+        }
+    }
 
-$mysqli->query($payer) or die($mysqli->error());
+    //Check if person has enough points for discount
 
-$mysqli->query($received) or die($mysqli->error());*/
+	$PointsCheck = "SELECT * from details where number='$number'";
+	$CheckQuery = $mysqli->query($PointsCheck) or die($mysqli->error());
+	$checkFetch = $CheckQuery->fetch_assoc();
+	$checkPoints = $checkFetch['Points'];
+
+	if($checkPoints > 10){ // if that person has more than 10 points
+
+		$points = $checkPoints - 10;
+		$mysqli->query("UPDATE details SET Points='$points' WHERE number='$number'") or die($mysqli->error);
+
+		$SMSmessage = "Your order has just been confirmed.\n You just got a 100 Rps discount on your meal.\n Keep ordering to earn more points";
+
+		$mysqli->query("UPDATE Orders2 SET Discount='1' WHERE Id='$id'") or die($mysqli->error);
+
+	}	
+	else{//just give them an extra point
+		$mysqli->query("UPDATE details SET Points=Points+1 WHERE number='$number'") or die($mysqli->error);
+		add 1
+		message is:
+	}
+
+	//update order
+
+	$received = "UPDATE Orders2 SET Confirm='1' WHERE Id='$id'";
+
+	$mysqli->query($received) or die($mysqli->error());
 
 
-/*include ( "Nexmo-PHP-lib-master/NexmoMessage.php" ); 
-$conmessage = 'Your order has just been confirmed. It is coming soon ;) Home: http://ouideliver.xyz/index.php';*/
-// Step 1: Declare new NexmoMessage.
-/*$nexmo_sms = new NexmoMessage('d6726b9a', '005e2f3453ccb56c');*/
-// Step 2: Use sendText( $to, $from, $message ) method to send a message. 
-/*$info = $nexmo_sms->sendText( $number, 'MyApp',$conmessage);
+	include ( "Nexmo-PHP-lib-master/NexmoMessage.php" ); 
+	/*$conmessage = 'Your order has just been confirmed. It is coming soon ;) Home: http://ouideliver.xyz/index.php';*/
+	// Step 1: Declare new NexmoMessage.
+	$nexmo_sms = new NexmoMessage('d6726b9a', '005e2f3453ccb56c');
+	// Step 2: Use sendText( $to, $from, $message ) method to send a message. 
+	$info = $nexmo_sms->sendText( $number, 'MyApp',$SMSmessage);
 
-    $_SESSION['emoji'] = "&#x1F60A;";
-    $_SESSION['message'] = "Order confirmed";
-    header("location: notification.php");
-}*/
+	echo "<script type='text/javascript'>alert('"Orderconfirmed"');</script>";
+
+}
+
+
 ?>
