@@ -1,9 +1,9 @@
 <?php
-
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$db = 'shoopingcart';
+/* Database connection settings */
+$host = 'mysql.hostinger.com';
+$user = 'u627368589_trial';
+$pass = '12345678';
+$db = 'u627368589_trial';;
 $mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
 
 
