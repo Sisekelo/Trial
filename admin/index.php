@@ -89,7 +89,7 @@
 						<th  style="border-left: 1px solid #C1DAD7"> Id </th>
 						<th> Meal </th>
 						<th> Flavour </th>
-						<th> Filling </th>
+						<th> Comment </th>
 						<th> Quantity </th>
 						<th> Drink Choice </th>
 						<th> Transaction Number </th>
@@ -108,7 +108,7 @@
 							echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['Id'].'</td>';
 							echo '<td>'.$row['Meal'].'</td>';
 							echo '<td><div align="left">'.$row['Flavour'].'</div></td>';
-							echo '<td><div align="left">'.$row['Filling'].'</div></td>';
+							echo '<td><div align="left">'.$row['Comment'].'</div></td>';
 							echo '<td><div align="left">'.$row['Quantity'].'</div></td>';
 							echo '<td><div align="left">'.$row['Drink_Choice'].'</div></td>';
 							echo '<td><div align="left">'.$row['Transaction_Number'].'</div></td>';
