@@ -3,7 +3,7 @@ session_start();
 ob_start();
 require 'db.php';
 
-$number= $_GET["number"];
+$number= '+'.$_GET["number"];
 $id = $_GET["id"];
 
 //check Id
@@ -26,7 +26,7 @@ if($checkFinal == 1){
 else{
 
 	//check if this person has ordered before
-    $first = $mysqli->query("SELECT * FROM Orders2 WHERE number='$number'") or die($mysqli->error());
+    $first = $mysqli->query("SELECT * FROM Orders2 WHERE Buyer_Number='$number'") or die($mysqli->error());
     if($first->num_rows == 0){
         $referal = $mysqli->query("SELECT Referer FROM details WHERE number='$number'") or die($mysqli->error());
         
@@ -58,8 +58,7 @@ else{
 	}	
 	else{//just give them an extra point
 		$mysqli->query("UPDATE details SET Points=Points+1 WHERE number='$number'") or die($mysqli->error);
-		/*add 1
-		message is:*/
+		
 	}
 
 	//update order
@@ -76,7 +75,7 @@ else{
 	// Step 2: Use sendText( $to, $from, $message ) method to send a message. 
 	$info = $nexmo_sms->sendText( $number, 'MyApp',$SMSmessage);
 
-	echo "<script type='text/javascript'>alert('"Orderconfirmed"');</script>";
+	echo "<script type='text/javascript'>alert('Orderconfirmed');</script>";
 
 }
 
