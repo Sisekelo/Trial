@@ -3,7 +3,7 @@
 	session_start();
 	
 	//Connect to mysql server
-	require "store/connect.php";
+	require "admin/db.php";
 	
 	//Function to sanitize values received from the form. Prevents SQL injection
 	/*function clean($str) {
@@ -20,7 +20,7 @@
 	
 	//Create query
 /*	$qry="SELECT * FROM user WHERE username='$login' AND password='$password'";*/
-	$result = $mysqli->query("SELECT * FROM user WHERE username='$login' AND password='$password'");
+	$result = $mysqli->query("SELECT * FROM Vendors WHERE username='$login' AND password='$password'");
 /*	$result=mysql_query($qry);*/
 	//while($row = mysql_fetch_array($result))
 //  {
@@ -34,10 +34,10 @@
 			$member = mysqli_fetch_assoc($result);
 			$_SESSION['SESS_MEMBER_ID'] = $member['user_id'];
 			/*$_SESSION['SESS_FIRST_NAME'] = $member['position'];*/
-			/*$_SESSION['Vendor'] = $member['username'];*/
+			$_SESSION['Vendor'] = $member['username'];
 			session_write_close();
 			//if ($level="admin"){
-			header("location: admin/index.php?vendor=".$_SESSION['SESS_MEMBER_ID']."");
+			header("location: admin/index.php?vendor=".$_SESSION['Vendor']."");
 			exit();
 		}else {
 			//Login failed
