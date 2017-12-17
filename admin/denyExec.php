@@ -8,7 +8,7 @@ $number = $_POST['Number'];
 $Reason = $_POST['Reason'];
 $Vendor = $_POST['Vendor'];
 
-$message = .$Vendor." denied your order because: ".$Reason.;
+$message = "".$Vendor." denied your order because: ".$Reason."";
 
  $givepoints =$mysqli->query("UPDATE Orders2 SET Deny='1' WHERE Id='$id'") or die($mysqli->error()); //update db saying we denied order
 
