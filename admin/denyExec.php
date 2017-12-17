@@ -23,6 +23,6 @@ $message = "".$Vendor." denied your order because: ".$Reason."";
 
 	/*echo $nexmo_sms->displayOverview($info);*/
 
-	header("location: https://ouideliver.xyz/Trial/admin/index.php?vendor=$Vendor.php");
+	header("location: https://ouideliver.xyz/Trial/admin/index.php?vendor=$Vendor");
 
 ?>
