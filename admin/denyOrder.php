@@ -7,6 +7,7 @@ $number= $_GET["number"];
 $numberPlus = '+'.$number;
 $numberPlus = str_replace(' ', '', $numberPlus);
 $id = $_GET["id"];
+$Vendor = $_GET["Vendor"];
 
 ?>
 
@@ -89,8 +90,7 @@ height: 34px;
 
 <form action="denyExec.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
 
-
-
+  Vendor<input   name="Vendor" type="text" class="ed" value="<?= $Vendor ?>" /><br/>
   Order ID<input   name="ID" type="text" class="ed" value="<?= $id ?>" /><br/>
   Client_number<input  name="Number" type="text" class="ed" value="<?= $numberPlus ?>" /><br/>
   Reason for denying order <br><input required name="Reason" type="textarea" class="ed" /><br/>

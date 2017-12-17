@@ -6,6 +6,7 @@ require 'db.php';
 $id = $_POST['ID'];
 $number = $_POST['Number'];
 $Reason = $_POST['Reason'];
+$Vendor = $_POST['Vendor'];
 
  $givepoints =$mysqli->query("UPDATE Orders2 SET Deny='1' WHERE Id='$id'") or die($mysqli->error()); //update db saying we denied order
 
@@ -20,6 +21,6 @@ $Reason = $_POST['Reason'];
 
 	/*echo $nexmo_sms->displayOverview($info);*/
 
-	header("location: https://ouideliver.xyz/Trial/admin/index.php?vendor=1.php");
+	header("location: https://ouideliver.xyz/Trial/admin/index.php?vendor=$Vendor.php");
 
 ?>
