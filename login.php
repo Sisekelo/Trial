@@ -20,7 +20,7 @@
 	
 	//Create query
 /*	$qry="SELECT * FROM user WHERE username='$login' AND password='$password'";*/
-	$result = $mysqli->query("SELECT * FROM Vendors WHERE username='$login' AND password='$password'");
+	$result = $mysqli->query("SELECT * FROM Vendors WHERE Name='$login' AND Password='$password'");
 /*	$result=mysql_query($qry);*/
 	//while($row = mysql_fetch_array($result))
 //  {
