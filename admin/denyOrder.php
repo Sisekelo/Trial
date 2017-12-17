@@ -90,12 +90,12 @@ height: 34px;
 <form action="denyExec.php" method="post" enctype="multipart/form-data" name="addroom" onsubmit="return validateForm()">
 
 
-  Client_number<input disabled required name="Name" type="text" class="ed" value="<?= $numberPlus ?>" /><br/>
-  Reason for denying order <br><input required name="Desc" type="textarea" class="ed" /><br/>
-  <!-- Description<br/>
-  <input name="desc" type="text" class="ed" /><br />
-  Room Image: <br /><input type="file" name="image" class="ed"><br />  -->
-  <input type="submit" name="Submit" value="save" id="button1" />
+
+  Order ID<input disabled required name="ID" type="text" class="ed" value="<?= $id ?>" /><br/>
+  Client_number<input disabled required name="Number" type="text" class="ed" value="<?= $numberPlus ?>" /><br/>
+  Reason for denying order <br><input required name="Reason" type="textarea" class="ed" /><br/>
+
+  <input type="submit" name="Submit" value="Deny order" id="button1" />
 
  
 </form>
