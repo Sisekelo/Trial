@@ -10,8 +10,8 @@ $id = $_GET["id"];
 $SMSmessage = "Your order has been received";
 
 
-echo $numberPlus."<br>";
-echo $number;
+/*echo $numberPlus."<br>";
+echo $number;*/
 
 //check Id
 
@@ -66,7 +66,7 @@ else{
 	}	
 	else {//just give them an extra point
 		$mysqli->query("UPDATE details SET Points=Points+1 WHERE number='$numberPlus'") or die($mysqli->error);
-		echo "We added some points";
+		/*echo "We added some points";*/
 	 }
 
 	//update order
@@ -87,7 +87,7 @@ else{
 	// Step 2: Use sendText( $to, $from, $message ) method to send a message. 
 	$info = $nexmo_sms->sendText( $numberPlus, 'MyApp', $SMSmessage);
 
-	echo $nexmo_sms->displayOverview($info);
+	/*echo $nexmo_sms->displayOverview($info);*/
 
 	header("location: https://ouideliver.xyz/Trial/admin/index.php?vendor=1.php");
 
