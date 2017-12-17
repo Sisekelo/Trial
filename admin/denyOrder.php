@@ -91,8 +91,8 @@ height: 34px;
 
 
 
-  Order ID<input disabled  name="ID" type="text" class="ed" value="<?= $id ?>" /><br/>
-  Client_number<input disabled name="Number" type="text" class="ed" value="<?= $numberPlus ?>" /><br/>
+  Order ID<input   name="ID" type="text" class="ed" value="<?= $id ?>" /><br/>
+  Client_number<input  name="Number" type="text" class="ed" value="<?= $numberPlus ?>" /><br/>
   Reason for denying order <br><input required name="Reason" type="textarea" class="ed" /><br/>
 
   <input type="submit" name="Submit" value="Deny order" id="button1" />
