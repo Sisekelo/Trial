@@ -87,12 +87,12 @@ height: 34px;
       //-->
    </SCRIPT>
 
-<form action="denyExec.php" method="post" enctype="multipart/form-data" name="addroom" onsubmit="return validateForm()">
+<form action="denyExec.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
 
 
 
-  Order ID<input disabled required name="ID" type="text" class="ed" value="<?= $id ?>" /><br/>
-  Client_number<input disabled required name="Number" type="text" class="ed" value="<?= $numberPlus ?>" /><br/>
+  Order ID<input disabled  name="ID" type="text" class="ed" value="<?= $id ?>" /><br/>
+  Client_number<input disabled name="Number" type="text" class="ed" value="<?= $numberPlus ?>" /><br/>
   Reason for denying order <br><input required name="Reason" type="textarea" class="ed" /><br/>
 
   <input type="submit" name="Submit" value="Deny order" id="button1" />
