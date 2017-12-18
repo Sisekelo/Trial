@@ -2,10 +2,11 @@
 	require_once('../auth.php');
 	$Vendor =$_SESSION['Vendor'];
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="refresh" content="15"/>
 <title>Dashboard | Modern Admin</title>
 <link rel="stylesheet" type="text/css" href="css/960.css" />
 <link rel="stylesheet" type="text/css" href="css/reset.css" />
@@ -45,9 +46,9 @@
 <!-- MENU START -->
 <div id="menu">
 	<ul class="group" id="menu_group_main">
-		<li class="item first" id="one"><a href="index.php?vendor=<?=$Vendor?>" class="main"><span class="outer"><span class="inner dashboard">Dashboard</span></span></a></li>
-		<li class="item middle" id="four"><a href="message.php" class="main current"><span class="outer"><span class="inner media_library">Messages</span></span></a></li>  
-		<li class="item last" id="eight"><a href="products.php" class="main"><span class="outer"><span class="inner settings">Products</span></span></a></li>        
+		<li class="item first" id="one"><a href="index.php" class="main current"><span class="outer"><span class="inner dashboard">Confirmations</span></span></a></li>
+		<li class="item middle" id="four"><a href="message.php" class="main"><span class="outer"><span class="inner media_library">Preparations</span></span></a></li>  
+		<li class="item last" id="eight"><a href="products.php?vendor=<?=$Vendor?>" class="main"><span class="outer"><span class="inner settings">Deliveries</span></span></a></li>        
     </ul>
 </div>
 <!-- MENU END -->
@@ -58,7 +59,7 @@
     <div class="grid_16" id="content">
     <!--  TITLE START  --> 
     <div class="grid_9">
-    <h1 class="dashboard">Messages</h1>
+    <h1 class="dashboard">Dashboard User = <?= $Vendor ?></h1>
     </div>
     <div class="clear">
     </div>
@@ -72,34 +73,48 @@
 		<div class="portlet">
 			<div class="portlet-header fixed"><img src="images/icons/user.gif" width="16" height="16" alt="Latest Registered Users" /> 
 			<label for="filter">Search</label> <input type="text" name="filter" value="" id="filter" />
+			&nbsp;&nbsp;Legend:  <img src="cancel.png">Pending &nbsp;<img src="active.png">Delivered
 			</div>
 			<div class="portlet-content nopadding">
 			<form action="" method="post">
+			
 			<table cellpadding="1" cellspacing="1" id="resultTable">
 				<thead>
 					<tr>
-						<th  style="border-left: 1px solid #C1DAD7" width="15%"> Name </th>
-						<th width="15%"> Email </th>
-						<th width="20%"> Subject </th>
-						<th width="40%"> Content </th>
-						<th width="10%"> Action </th>
+						<th  style="border-left: 1px solid #C1DAD7"> Id </th>
+						<th> Meal </th>
+						<th> Flavour </th>
+						<th> Comment </th>
+						<th> Quantity </th>
+						<th> Drink Choice </th>
+						<th> Transaction Number </th>
+						<th> Confirm</th>
+						<th> Deny</th>
 					</tr>
 				</thead>
 				<tbody>
 				<?php
-				include('../store/connect.php');
-				$result = mysql_query("SELECT * FROM message");
-				while($row = mysql_fetch_array($result))
-					{
-						echo '<tr class="record">';
-						echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['name'].'</td>';
-						echo '<td><div align="left">'.$row['email'].'</div></td>';
-						echo '<td><div align="left">'.$row['subject'].'</div></td>';
-						echo '<td><div align="left">'.$row['message'].'</div></td>';
-						echo '<td><div align="center"><a href="#" id="'.$row['message_id'].'" class="delbutton" title="Click To Delete">delete</a></div></td>';
-						echo '</tr>';
-					}
-				?> 
+					include('db.php');
+					/*$result = mysql_query("SELECT * FROM reservation ORDER BY firstname ASC");*/
+					$result = $mysqli ->query("SELECT * FROM  Orders2 WHERE Confirm = '1' AND Deny='0'AND PickUp = '0' AND Deliver='0' AND Vendor='$Vendor'  ORDER BY Date ASC");
+					while($row = mysqli_fetch_array($result))
+						{
+							echo '<tr>';
+							echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['Id'].'</td>';
+							echo '<td>'.$row['Meal'].'</td>';
+							echo '<td><div align="left">'.$row['Flavour'].'</div></td>';
+							echo '<td><div align="left">'.$row['Comment'].'</div></td>';
+							echo '<td><div align="left">'.$row['Quantity'].'</div></td>';
+							echo '<td><div align="left">'.$row['Drink_Choice'].'</div></td>';
+							echo '<td><div align="left">'.$row['Transaction_Number'].'</div></td>';
+
+							echo '<td><div align="center"><a rel="facebox" href="confirmOrder.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'&vendor='.$Vendor.'" title="Click To View Orders">Confirm Order</a></div></td>';
+							echo '<td><div align="center"><a rel="facebox" href="denyOrder.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'&Vendor='.$Vendor.'" title="Click To View Orders">Deny Order</a></div></td>';
+						
+							/*echo '<td><div align="center"><a rel="facebox" href="vieworders.php?id='.$row['confirmation'].'" title="Click To View Orders">View Orders</a> | <a rel="facebox" href="viewreport.php?id='.$row['confirmation'].'" title="Click To View Orders">Print</a> | <a rel="facebox" href="editstatus.php?id='.$row['reservation_id'].'">edit</a> | <a href="#" id="'.$row['reservation_id'].'" class="delbutton" title="Click To Delete">delete</a></div></td>';*/
+							echo '</tr>';
+						}
+					?> 
 				</tbody>
 			</table>
 			</form>
@@ -139,7 +154,7 @@ var info = 'id=' + del_id;
 
  $.ajax({
    type: "GET",
-   url: "deletemessage.php",
+   url: "deleteres.php",
    data: info,
    success: function(){
    
