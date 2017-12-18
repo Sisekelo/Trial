@@ -8,7 +8,7 @@ $numberPlus = '+'.$number;
 $numberPlus = str_replace(' ', '', $numberPlus);
 $id = $_GET["id"];
 $SMSmessage = "Your order has been received";
-
+$Vendor = $_SESSION['Vendor'];
 
 /*echo $numberPlus."<br>";
 echo $number;*/
@@ -86,7 +86,7 @@ else{
 
 	/*echo $nexmo_sms->displayOverview($info);*/
 
-	header("location: https://ouideliver.xyz/Trial/admin/index.php?vendor=1.php");
+	header("location: https://ouideliver.xyz/Trial/admin/index.php?vendor=$Vendor");
 
 	/*echo "<script type='text/javascript'>alert('Orderconfirmed');</script>";*/
 
