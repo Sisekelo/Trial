@@ -47,9 +47,9 @@
 <!-- MENU START -->
 <div id="menu">
 	<ul class="group" id="menu_group_main">
-		<li class="item first" id="one"><a href="index.php" class="main current"><span class="outer"><span class="inner dashboard">Confirmations</span></span></a></li>
+		<li class="item first" id="one"><a href="index.php" class="main"><span class="outer"><span class="inner dashboard">Confirmations</span></span></a></li>
 		<li class="item middle" id="four"><a href="message.php" class="main"><span class="outer"><span class="inner media_library">Preparations</span></span></a></li>  
-		<li class="item last" id="eight"><a href="products.php?vendor=<?=$Vendor?>" class="main"><span class="outer"><span class="inner settings">Deliveries</span></span></a></li>        
+		<li class="item last" id="eight"><a href="products.php?vendor=<?=$Vendor?>" class="main current"><span class="outer"><span class="inner settings">Deliveries</span></span></a></li>        
     </ul>
 </div>
 <!-- MENU END -->

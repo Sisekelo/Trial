@@ -37,7 +37,7 @@ else{
 
 	$mysqli->query($received) or die($mysqli->error());
 
-	header("location: https://ouideliver.xyz/Trial/admin/index.php?vendor=$Vendor");
+	header("location: https://ouideliver.xyz/Trial/admin/message.php?vendor=$Vendor");
 
 
 }

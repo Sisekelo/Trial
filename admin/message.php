@@ -46,8 +46,8 @@
 <!-- MENU START -->
 <div id="menu">
 	<ul class="group" id="menu_group_main">
-		<li class="item first" id="one"><a href="index.php" class="main current"><span class="outer"><span class="inner dashboard">Confirmations</span></span></a></li>
-		<li class="item middle" id="four"><a href="message.php" class="main"><span class="outer"><span class="inner media_library">Preparations</span></span></a></li>  
+		<li class="item first" id="one"><a href="index.php" class="main"><span class="outer"><span class="inner dashboard">Confirmations</span></span></a></li>
+		<li class="item middle" id="four"><a href="message.php" class="main current"><span class="outer"><span class="inner media_library">Preparations</span></span></a></li>  
 		<li class="item last" id="eight"><a href="products.php?vendor=<?=$Vendor?>" class="main"><span class="outer"><span class="inner settings">Deliveries</span></span></a></li>        
     </ul>
 </div>
@@ -108,7 +108,7 @@
 							echo '<td><div align="left">'.$row['Drink_Choice'].'</div></td>';
 							echo '<td><div align="left">'.$row['Transaction_Number'].'</div></td>';
 
-							echo '<td><div align="center"><a rel="facebox" href="confirmPrepare.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'&vendor='.$Vendor.'" title="Click To View Orders">Confirm Order</a></div></td>';
+							echo '<td><div align="center"><a rel="facebox" href="confirmPrepare.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'&vendor='.$Vendor.'" title="Click To View Orders">Confirm Prepared</a></div></td>';
 							echo '<td><div align="center"><a rel="facebox" href="denyOrder.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'&Vendor='.$Vendor.'" title="Click To View Orders">Deny Order</a></div></td>';
 						
 							/*echo '<td><div align="center"><a rel="facebox" href="vieworders.php?id='.$row['confirmation'].'" title="Click To View Orders">View Orders</a> | <a rel="facebox" href="viewreport.php?id='.$row['confirmation'].'" title="Click To View Orders">Print</a> | <a rel="facebox" href="editstatus.php?id='.$row['reservation_id'].'">edit</a> | <a href="#" id="'.$row['reservation_id'].'" class="delbutton" title="Click To Delete">delete</a></div></td>';*/
