@@ -1,12 +1,18 @@
 <?php
 	require_once('../auth.php');
 
-	if(!isset($_GET["vendor"])){
+	if(!isset($_GET["vendor"]) || !isset($_SESSION['Vendor']) ){
       header("location: ../index.php");
+    }
+    elseif (isset($_GET["vendor"])) {
+    	$Vendor= $_GET["vendor"];
+		$_SESSION['Vendor'] = $Vendor;
+    };
+    else {
+    	$Vendor =$_SESSION['Vendor'];
     };
 
-	$Vendor= $_GET["vendor"];
-	$_SESSION['Vendor'] = $Vendor
+	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="https://www.w3.org/1999/xhtml">
@@ -53,8 +59,9 @@
 <div id="menu">
 	<ul class="group" id="menu_group_main">
 		<li class="item first" id="one"><a href="index.php" class="main current"><span class="outer"><span class="inner dashboard">Confirmations</span></span></a></li>
-		<li class="item middle" id="four"><a href="message.php" class="main"><span class="outer"><span class="inner media_library">Preparations</span></span></a></li>  
-		<li class="item last" id="eight"><a href="products.php?vendor=<?=$Vendor?>" class="main"><span class="outer"><span class="inner settings">Deliveries</span></span></a></li>        
+		<li class="item middle" id="four"><a href="message.php" class="main"><span class="outer"><span class="inner media_library">Preparations</span></span></a></li> 
+		<li class="item middle" id="eight"><a href="pickUp.php" class="main"><span class="outer"><span class="inner settings">Pick Ups</span></span></a></li>  
+		<li class="item last" id="eight"><a href="products.php" class="main"><span class="outer"><span class="inner settings">Deliveries</span></span></a></li>        
     </ul>
 </div>
 <!-- MENU END -->

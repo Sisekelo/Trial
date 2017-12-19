@@ -49,8 +49,8 @@
 	<ul class="group" id="menu_group_main">
 		<li class="item first" id="one"><a href="index.php" class="main "><span class="outer"><span class="inner dashboard">Confirmations</span></span></a></li>
 		<li class="item middle" id="four"><a href="message.php" class="main"><span class="outer"><span class="inner media_library">Preparations</span></span></a></li> 
-		<li class="item middle" id="eight"><a href="pickUp.php" class="main"><span class="outer"><span class="inner settings">Pick Ups</span></span></a></li>  
-		<li class="item last" id="eight"><a href="products.php" class="main current"><span class="outer"><span class="inner settings">Deliveries</span></span></a></li>        
+		<li class="item middle" id="eight"><a href="pickUp.php" class="main current"><span class="outer"><span class="inner settings">Pick Ups</span></span></a></li>  
+		<li class="item last" id="eight"><a href="products.php" class="main"><span class="outer"><span class="inner settings">Deliveries</span></span></a></li>        
     </ul>
 </div>
 <!-- MENU END -->
@@ -75,7 +75,7 @@
 		<div class="portlet">
 			<div class="portlet-header fixed"><img src="images/icons/user.gif" width="16" height="16" alt="Latest Registered Users" /> 
 			<label for="filter">Search</label> <input type="text" name="filter" value="" id="filter" />
-			&nbsp;&nbsp;Legend:  <img src="cancel.png">Pending &nbsp;<img src="active.png">Delivered
+			&nbsp;&nbsp;Legend:  <img src="cancel.png">Pending &nbsp;<img src="active.png">PickUps
 			</div>
 			<div class="portlet-content nopadding">
 			<form action="" method="post">
