@@ -92,6 +92,7 @@
 						<th> Drink Choice </th>
 						<th> Location </th>
 						<th> Price </th>
+						<th> Discount </th>
 						<th> Confirm</th>
 						<th> Deny</th>
 					</tr>
@@ -113,6 +114,7 @@
 							echo '<td><div align="left">'.$row['Drink_Choice'].'</div></td>';
 							echo '<td><div align="left">'.$row['Location'].'</div></td>';
 							echo '<td><div align="left">'.$row['Total'].'</div></td>';
+							echo '<td><div align="left">'.$row['Discount'].'</div></td>';
 
 							echo '<td><div align="center"><a rel="facebox" href="confirmDelivery.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'&vendor='.$Vendor.'" title="Click To View Orders">Confirm Delivery</a></div></td>';
 							echo '<td><div align="center"><a rel="facebox" href="denyOrder.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'&Vendor='.$Vendor.'" title="Click To View Orders">Deny Order</a></div></td>';
