@@ -109,7 +109,7 @@
 				<?php
 					include('db.php');
 					/*$result = mysql_query("SELECT * FROM reservation ORDER BY firstname ASC");*/
-					$result = $mysqli ->query("SELECT * FROM  Orders2 WHERE Confirm = '0' AND Deny='0'AND PickUp = '0' AND Deliver='0' AND Vendor='$Vendor'  ORDER BY Date ASC");
+					$result = $mysqli ->query("SELECT * FROM  Orders2 WHERE Confirm = '0' AND Prepared = '0' AND Deny='0'AND  PickUp = '0' AND Deliver='0' AND Vendor='$Vendor'  ORDER BY Date ASC");
 					while($row = mysqli_fetch_array($result))
 						{
 							echo '<tr>';

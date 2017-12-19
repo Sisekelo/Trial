@@ -12,33 +12,30 @@ echo $number;*/
 
 //check Id
 
-$queryCheck = "SELECT Prepared from Orders2 where Id='$id'";
+$queryCheck = "SELECT Deliver from Orders2 where Id='$id'";
 
 $check = $mysqli->query($queryCheck) or die($mysqli->error());
 $checkFetch = $check->fetch_assoc();     
-$checkFinal = $checkFetch['Prepared'];
+$checkFinal = $checkFetch['Deliver'];
 
 
 
 
 if($checkFinal == 1){
    
-      $message = "This order has already been Prepared";
+      $message = "This order has already been delivered";
       echo "<script type='text/javascript'>alert('$message');</script>";
 
     
 }
 else{
-
-
 	//update ready for pickup
 
-	$received = "UPDATE Orders2 SET Prepared='1' WHERE Id='$id'";
+	$received = "UPDATE Orders2 SET Deliver='1' WHERE Id='$id'";
 
 	$mysqli->query($received) or die($mysqli->error());
 
-	header("location: https://ouideliver.xyz/Trial/admin/message.php");
-
+	header("location: https://ouideliver.xyz/Trial/admin/products.php");
 }
 
 
