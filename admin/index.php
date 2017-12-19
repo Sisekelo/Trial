@@ -100,7 +100,6 @@
 						<th> Comment </th>
 						<th> Quantity </th>
 						<th> Drink Choice </th>
-						<th> Transaction Number </th>
 						<th> Confirm</th>
 						<th> Deny</th>
 					</tr>
