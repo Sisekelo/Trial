@@ -40,6 +40,7 @@ else{
 
 	$mysqli->query($received) or die($mysqli->error());
 
+	
 	include ( "Nexmo-PHP-lib-master/NexmoMessage.php" ); 
 	// Step 1: Declare new NexmoMessage.
 	$nexmo_sms = new NexmoMessage('d6726b9a', '005e2f3453ccb56c');
