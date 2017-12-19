@@ -38,7 +38,7 @@ else{
 
 	$mysqli->query($received) or die($mysqli->error());
 
-	$SMSmessage="Your Oui Deliver order has been picked up and is on its way"
+	$SMSmessage="Your Oui Deliver order has been picked up and is on its way";
 
 	include ( "Nexmo-PHP-lib-master/NexmoMessage.php" ); 
 	/*$conmessage = 'Your order has just been confirmed. It is coming soon ;) Home: http://ouideliver.xyz/index.php';*/
