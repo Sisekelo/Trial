@@ -1,7 +1,7 @@
 <?php
 	require_once('../auth.php');
 
-	if(!isset($_GET["vendor"]) || !isset($_SESSION['Vendor']) ){
+	if(!isset($_GET["vendor"]) && !isset($_SESSION['Vendor']) ){
       header("location: ../index.php");
     }
     elseif (isset($_GET["vendor"])) {
