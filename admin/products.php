@@ -84,6 +84,7 @@
 				<thead>
 					<tr>
 						<th  style="border-left: 1px solid #C1DAD7"> Id </th>
+						<th> Vendor </th>
 						<th> Meal </th>
 						<th> Flavour </th>
 						<th> Comment </th>
@@ -103,6 +104,7 @@
 						{
 							echo '<tr>';
 							echo '<td style="border-left: 1px solid #C1DAD7;">'.$row['Id'].'</td>';
+							echo '<td>'.$row['Vendor'].'</td>';
 							echo '<td>'.$row['Meal'].'</td>';
 							echo '<td><div align="left">'.$row['Flavour'].'</div></td>';
 							echo '<td><div align="left">'.$row['Comment'].'</div></td>';
