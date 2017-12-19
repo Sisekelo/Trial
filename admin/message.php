@@ -107,7 +107,6 @@
 							echo '<td><div align="left">'.$row['Comment'].'</div></td>';
 							echo '<td><div align="left">'.$row['Quantity'].'</div></td>';
 							echo '<td><div align="left">'.$row['Drink_Choice'].'</div></td>';
-							echo '<td><div align="left">'.$row['Transaction_Number'].'</div></td>';
 
 							echo '<td><div align="center"><a rel="facebox" href="confirmPrepare.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'&vendor='.$Vendor.'" title="Click To View Orders">Confirm Prepared</a></div></td>';
 							echo '<td><div align="center"><a rel="facebox" href="denyOrder.php?id='.$row['Id'].'&number='.$row['Buyer_Number'].'&Vendor='.$Vendor.'" title="Click To View Orders">Deny Order</a></div></td>';
