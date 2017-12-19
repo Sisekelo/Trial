@@ -7,7 +7,7 @@
     elseif (isset($_GET["vendor"])) {
     	$Vendor= $_GET["vendor"];
 		$_SESSION['Vendor'] = $Vendor;
-    };
+    }
     else {
     	$Vendor =$_SESSION['Vendor'];
     };
